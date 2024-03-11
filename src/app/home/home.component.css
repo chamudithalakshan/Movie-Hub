@@ -1,0 +1,5 @@
+#cardSection {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+  gap: 1rem; /* Gap between grid items */
+}
