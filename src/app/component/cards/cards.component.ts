@@ -14,9 +14,10 @@ import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 })
 export class CardsComponent  {
   @Input() id = "";
-  imageUrl: string = 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp';
+  @Input() imageUrl: string = '';
+
   // filmId: string = this.id;
-  name:string="fast and furios"
+  @Input() name:string=""
 
   constructor(private router: Router) {}
 

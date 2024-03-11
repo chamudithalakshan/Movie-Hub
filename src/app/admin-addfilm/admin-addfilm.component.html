@@ -1,11 +1,14 @@
 <div class="">
 <div id="addFilmContent" class=" ">
-  <form action="#" method="POST" class="mx-auto  max-w-xl  ">
+  <form [formGroup]="addFilmForm" action="#" method="POST" class="mx-auto  max-w-xl  ">
     <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
       <div>
-        <label for="film-name" class="block text-sm font-semibold leading-6 text-gray-900">Film name</label>
+        <label for="filmName" class="block text-sm font-semibold leading-6 text-gray-900">Film name</label>
         <div class="mt-2.5">
-          <input type="text" name="first-name" id="film-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <input type="text" name="filmName" id="filmName" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <div *ngIf="addFilmForm.controls['filmName'].invalid && (addFilmForm.controls['filmName'].touched || addFilmForm.controls['filmName'].dirty)">
+            <span *ngIf="addFilmForm.controls['filmName'].errors?.['required']" class="text-sm text-red-500">This is required</span>
+          </div>
         </div>
       </div>
       <!--      <div>-->

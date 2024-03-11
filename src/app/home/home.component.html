@@ -1,6 +1,5 @@
 <!-- Carousal -->
 <section class="m-6">
-  <h1>home component</h1>
     <div id="default-carousel" class="relative w-full" data-carousel="slide">
         <!-- Carousel wrapper -->
         <div class="relative h-96 overflow-hidden rounded-lg md:h-96">
@@ -55,22 +54,14 @@
 <!-- Carousal -->
 <!-- Cards -->
 
-<div id="cardSection" class="!grid grid-cols-8 gap-2">
-  <div>helloo</div>
-  <div>helloo</div>
-  <div>helloo</div>
-  <div>helloo</div>
-  <div>helloo</div>
-  <div>helloo</div>
-  <div>helloo</div>
-  <div>helloo</div>
+<div id="cardSection" class="grid grid-cols-8 gap-4">
   <ng-container *ngFor="let plan of fetchedData">
-    <app-cards [id]="plan.id"></app-cards>
+    <app-cards [id]="plan.id" [imageUrl]="plan.imageUrl" [name]="plan.name"></app-cards>
+
   </ng-container>
-
-
 </div>
-<h1>end home</h1>
+
+
 
 
 <!-- Cards -->
