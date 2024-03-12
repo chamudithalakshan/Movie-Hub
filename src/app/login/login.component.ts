@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgIf} from "@angular/common";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [RouterLink,
-    RouterLinkActive, ReactiveFormsModule, NgIf],
+    RouterLinkActive, ReactiveFormsModule, NgIf,HttpClientModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -20,7 +21,7 @@ export class LoginComponent {
 
 
 isFormSubmitted:boolean=false;
-  constructor(private router: Router) {
+  constructor(private router: Router,private http:HttpClient) {
     this.loginForm=new FormGroup({
       email:new FormControl("",[Validators.required,Validators.email]),
       password:new FormControl("",[Validators.required,Validators.minLength(6)]),
