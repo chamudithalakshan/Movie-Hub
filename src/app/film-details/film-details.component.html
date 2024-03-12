@@ -1,7 +1,15 @@
-<html>
-<video width="320" height="240" autoplay muted>
-  <source src="https://youtu.be/8jDKknEXh3g?si=p7HXmtwN-7R3Qiep" type="video/mp4">
-<!--  <source src="movie.ogg" type="video/ogg">-->
-  Your browser does not support the video tag.
-</video>
-</html>
+<!-- film-details.component.html -->
+
+<div class="bg-gray-300 max-w-4xl mx-auto px-4 py-8">
+  <!-- Video player -->
+  <iframe class="w-full h-96 mb-8" [src]="safeVideoUrl ? safeVideoUrl : null"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+
+  <!-- Film details -->
+  <div>
+    <h1 class="text-3xl font-bold mb-4">{{ this.film?.name }}</h1>
+    <p class="text-lg text-gray-700">{{ this.film?.about }}</p>
+  </div>
+</div>

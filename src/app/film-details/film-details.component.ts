@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {FilmService} from "../film.service";
+import {Film} from '../model/Film';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-film-details',
@@ -8,19 +12,32 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './film-details.component.html',
   styleUrl: './film-details.component.css'
 })
-export class FilmDetailsComponent implements OnInit{
-  videoSrc = 'https://www.example.com/movie.mp4';
+export class FilmDetailsComponent implements OnInit {
+  filmId: string | null = '';
+  film: Film | undefined;
+  safeVideoUrl: SafeResourceUrl | undefined;
+  videoUrlString!: string
+  youTubeVideoId!:string | null
 
-  filmId: string = '';
-  constructor(private route: ActivatedRoute) { }
-  ngOnInit(): void {
-    // Retrieve the film ID from route parameters
-    this.route.params.subscribe(params => {
-      this.filmId = params['cid']; // No need to convert
-
-      console.log(this.filmId)
-    });
+  constructor(private route: ActivatedRoute, private filmService: FilmService, private sanitizer: DomSanitizer) {
   }
 
+  ngOnInit(): void {
+    this.filmId = this.route.snapshot.paramMap.get('id');
+
+    if (this.filmId !== null) {
+      // Retrieve film data from the service based on the film ID
+      this.film = this.filmService.getFilmById(this.filmId);
+      if (this.film === undefined) {
+        console.error('Film not found');
+      } else {
+        // Sanitize the videoUrl
+        this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.film.videoUrl);
+
+      }
+    } else {
+      console.error('Film ID is null');
+    }
+  }
 
 }

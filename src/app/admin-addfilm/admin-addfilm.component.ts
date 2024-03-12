@@ -26,6 +26,13 @@ constructor() {
   })
 }
 
+  onSubmit() {
+    const isFormValid=this.addFilmForm.valid;
+    this.isFormSubmitted=true
+
+
+  }
+
   toggleComponent(component: string) {
     this.toggle.emit(component);
   }

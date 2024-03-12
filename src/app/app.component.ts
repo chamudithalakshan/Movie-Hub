@@ -30,9 +30,13 @@ import {BrowserModule} from "@angular/platform-browser";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent  {
+export class AppComponent implements OnInit {
   title = 'Movie-hub';
   isAdminPage!: boolean;
+
+  ngOnInit(): void {
+    initFlowbite();
+  }
 
   constructor(
     private router: Router,

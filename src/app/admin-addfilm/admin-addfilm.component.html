@@ -1,52 +1,81 @@
 <div class="">
-<div id="addFilmContent" class=" ">
-  <form [formGroup]="addFilmForm" action="#" method="POST" class="mx-auto  max-w-xl  ">
-    <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-      <div>
-        <label for="filmName" class="block text-sm font-semibold leading-6 text-gray-900">Film name</label>
-        <div class="mt-2.5">
-          <input type="text" name="filmName" id="filmName" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          <div *ngIf="addFilmForm.controls['filmName'].invalid && (addFilmForm.controls['filmName'].touched || addFilmForm.controls['filmName'].dirty)">
-            <span *ngIf="addFilmForm.controls['filmName'].errors?.['required']" class="text-sm text-red-500">This is required</span>
+  <div id="addFilmContent" class=" ">
+    <form [formGroup]="addFilmForm" action="#" method="POST" class="mx-auto  max-w-xl  ">
+      <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+        <div>
+          <label for="filmName" class="block text-sm font-semibold leading-6 text-gray-900">Film name</label>
+          <div class="mt-2.5">
+            <!-- Input field for film name -->
+            <input formControlName="filmName" type="text" name="filmName" id="filmName" autocomplete="given-name"
+                   class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <div
+              *ngIf="addFilmForm.controls['filmName'].invalid && (isFormSubmitted||addFilmForm.controls['filmName'].touched || addFilmForm.controls['filmName'].dirty)">
+              <span *ngIf="addFilmForm.controls['filmName'].errors?.['required']" class="text-sm text-red-500">This is required</span>
+            </div>
+          </div>
+
+        </div>
+        <!--      <div>-->
+        <!--        <label for="last-name" class="block text-sm font-semibold leading-6 text-gray-900">Last name</label>-->
+        <!--        <div class="mt-2.5">-->
+        <!--          <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">-->
+        <!--        </div>-->
+        <!--      </div>-->
+        <div class="sm:col-span-2">
+          <label for="AboutFilm" class="block text-sm font-semibold leading-6 text-gray-900">About film</label>
+          <div class="mt-2.5">
+            <textarea formControlName="AboutFilm" type="text" name="AboutFilm" id="AboutFilm"
+                      autocomplete="organization"
+                      class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+            <div
+              *ngIf="addFilmForm.controls['AboutFilm'].invalid && (isFormSubmitted||addFilmForm.controls['AboutFilm'].touched || addFilmForm.controls['AboutFilm'].dirty)">
+              <span *ngIf="addFilmForm.controls['AboutFilm'].errors?.['required']" class="text-sm text-red-500">This is required</span>
+            </div>
+
           </div>
         </div>
-      </div>
-      <!--      <div>-->
-      <!--        <label for="last-name" class="block text-sm font-semibold leading-6 text-gray-900">Last name</label>-->
-      <!--        <div class="mt-2.5">-->
-      <!--          <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">-->
-      <!--        </div>-->
-      <!--      </div>-->
-      <div class="sm:col-span-2">
-        <label for="AboutFilm" class="block text-sm font-semibold leading-6 text-gray-900">About film</label>
-        <div class="mt-2.5">
-          <textarea type="text" name="AboutFilm" id="AboutFilm" autocomplete="organization" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+        <div class="sm:col-span-2">
+          <label for="category" class="block text-sm font-semibold leading-6 text-gray-900">Category</label>
+          <div class="mt-2.5">
+            <input formControlName="category" type="text" name="category" id="category"
+                   class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <div
+              *ngIf="addFilmForm.controls['category'].invalid && (isFormSubmitted||addFilmForm.controls['category'].touched || addFilmForm.controls['category'].dirty)">
+              <span *ngIf="addFilmForm.controls['category'].errors?.['required']" class="text-sm text-red-500">This is required</span>
+            </div>
+
+          </div>
         </div>
-      </div>
-      <div class="sm:col-span-2">
-        <label for="category" class="block text-sm font-semibold leading-6 text-gray-900">Category</label>
-        <div class="mt-2.5">
-          <input type="text" name="category" id="category"  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+        <div class="sm:col-span-2">
+          <label for="ServerLink" class="block text-sm font-semibold leading-6 text-gray-900">Server Link</label>
+          <div class="mt-2.5">
+            <input formControlName="ServerLink" type="text" name="serverLink" id="ServerLink"
+                   class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <div
+              *ngIf="addFilmForm.controls['ServerLink'].invalid && (isFormSubmitted||addFilmForm.controls['ServerLink'].touched || addFilmForm.controls['ServerLink'].dirty)">
+              <span *ngIf="addFilmForm.controls['ServerLink'].errors?.['required']" class="text-sm text-red-500">This is required</span>
+            </div>
+
+          </div>
         </div>
-      </div>
-      <div class="sm:col-span-2">
-        <label for="ServerLink" class="block text-sm font-semibold leading-6 text-gray-900">Server Link</label>
-        <div class="mt-2.5">
-          <input type="text" name="serverLink" id="ServerLink"  class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+
+        <div class="sm:col-span-2">
+
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload
+            image</label>
+          <input
+            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            id="file_input" type="file">
+
         </div>
-      </div>
-
-      <div class="sm:col-span-2">
-
-        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload image</label>
-        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
 
       </div>
-
-    </div>
-    <div class="mt-10">
-      <button type="submit" class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add film</button>
-    </div>
-  </form>
-</div>
+      <div class="mt-10">
+        <button type="button" (click)="onSubmit()"
+                class="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          Add film
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
