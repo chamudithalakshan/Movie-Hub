@@ -3,7 +3,7 @@ import { CardsComponent } from '../component/cards/cards.component';
 import {ActivatedRoute, Router, RouterLink, RouterOutlet} from "@angular/router";
 import { initFlowbite } from "flowbite";
 import {NgForOf} from "@angular/common";
-import {FilmService} from "../film.service";
+import {FilmService} from "../services/film.service";
 
 @Component({
   selector: 'app-home',

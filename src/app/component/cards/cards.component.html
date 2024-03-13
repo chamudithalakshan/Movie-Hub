@@ -1,11 +1,8 @@
 
     <div (click)="navigateToFilmDetails(id)" class="w-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <!-- <a routerLink="/film-details/:id" routerLinkActive="active" ariaCurrentWhenActive="page">
-        <img class="rounded h-52 w-full object-cover" [src]="imageUrl" />
-      </a> -->
       <div><img class="rounded h-52 w-full object-cover  hover:scale-105 duration-500" [src]="imageUrl" /></div>
-      <h2 class="mt-2 text-lg font-semibold">{{ name }}</h2>
-<!--      <h2 class="mt-2 text-lg font-semibold">{{ id }}</h2>-->
+      <h3 class="mt-2 text-sm font-semibold">{{ name }}</h3>
+
     </div>
 
 

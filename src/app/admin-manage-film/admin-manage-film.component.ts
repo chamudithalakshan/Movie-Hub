@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FilmService} from "../film.service";
+import {FilmService} from "../services/film.service";
 import {Film} from "../model/Film";
 import {NgForOf} from "@angular/common";
 
